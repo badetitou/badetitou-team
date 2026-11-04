@@ -27,9 +27,9 @@
       "repo": "badetitou/badetitou-team",
       "stack": ["claude-code-plugin"],
       "mcp": [],
-      "team": null,
-      "lastRetro": null,
-      "notes": "This repo."
+      "team": ".claude/team.md",
+      "lastRetro": "2026-11-04",
+      "notes": "This repo. Improvements tracked in GitHub project badetitou #5."
     }
   ]
 }
