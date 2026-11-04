@@ -1,0 +1,35 @@
+{
+  "$comment": "Projects with a Claude team. Updated by the team-setup and team-retro skills.",
+  "projects": [
+    {
+      "name": "vscode-pharo",
+      "path": "~/Documents/LSP/vscode-pharo",
+      "repo": "badetitou/vscode-pharo",
+      "stack": ["typescript", "vscode-extension", "pharo"],
+      "mcp": ["pharo pls (http://127.0.0.1:4001)"],
+      "team": null,
+      "lastRetro": null,
+      "notes": "Pharo side lives in Pharo-LanguageServer (image only, user commits via Iceberg)."
+    },
+    {
+      "name": "fluid",
+      "path": "~/Documents/Perso/fluid",
+      "repo": "gitlab.com/badetitou/fluid",
+      "stack": ["typescript", "react", "pnpm-monorepo"],
+      "mcp": ["pharo (http://127.0.0.1:4000)"],
+      "team": "agents: plugin-creator, practices-guardian, widget-creator (French prompts)",
+      "lastRetro": null,
+      "notes": "GitLab, not GitHub: github-flow's gh commands don't apply."
+    },
+    {
+      "name": "badetitou-team",
+      "path": "~/Documents/Perso/badetitou-team",
+      "repo": "badetitou/badetitou-team",
+      "stack": ["claude-code-plugin"],
+      "mcp": [],
+      "team": null,
+      "lastRetro": null,
+      "notes": "This repo."
+    }
+  ]
+}

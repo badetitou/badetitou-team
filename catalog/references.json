@@ -1,0 +1,45 @@
+{
+  "$comment": "External skills, plugins and MCP servers worth reusing before writing our own. scripts/sync-refs.sh shallow-clones repos into vendor/ (gitignored) for reading.",
+  "references": [
+    {
+      "name": "pharo-mcp",
+      "repo": "https://github.com/Evref-BL/MCP",
+      "ref": "main",
+      "kind": "mcp-server",
+      "use": "In-image MCP server for Pharo. Ships its own Claude guide and workflow skills: npx @evref-bl/pharo-mcp install --host claude",
+      "projects": ["pharo"]
+    },
+    {
+      "name": "plexus",
+      "repo": "https://github.com/Evref-BL/PLexus",
+      "ref": "main",
+      "kind": "mcp-gateway",
+      "use": "Pharo image lifecycle + per-image MCP routing (plexus.json). Consider when a project needs several images or isolated images per worktree.",
+      "projects": ["pharo"]
+    },
+    {
+      "name": "pharo-launcher-mcp",
+      "repo": "https://github.com/Evref-BL/pharo-launcher-mcp",
+      "ref": "main",
+      "kind": "mcp-server",
+      "use": "Pharo Launcher operations (images, templates, VMs, processes) over MCP; stdio via npx @evref-bl/pharo-launcher-mcp.",
+      "projects": ["pharo"]
+    },
+    {
+      "name": "claude-plugins-official",
+      "repo": "https://github.com/anthropics/claude-plugins-official",
+      "ref": "main",
+      "kind": "plugin-marketplace",
+      "use": "Official plugin directory; check here before writing a generic skill.",
+      "projects": ["*"]
+    },
+    {
+      "name": "academic-research-skills",
+      "repo": "https://github.com/Imbad0202/academic-research-skills",
+      "ref": "main",
+      "kind": "plugin",
+      "use": "Research, paper writing and review pipeline (installed user-wide).",
+      "projects": ["research"]
+    }
+  ]
+}

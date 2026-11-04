@@ -1,0 +1,4 @@
+# Shallow clones made by scripts/sync-refs.sh, for reading only
+vendor/
+.DS_Store
+__pycache__/

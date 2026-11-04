@@ -1,0 +1,15 @@
+{
+  "name": "badetitou",
+  "owner": {
+    "name": "Benoit Verhaeghe",
+    "url": "https://github.com/badetitou"
+  },
+  "description": "Benoit Verhaeghe's Claude Code team kit.",
+  "plugins": [
+    {
+      "name": "badetitou-team",
+      "source": "./",
+      "description": "Team setup, task preparation, retros, and stack skills (Pharo MCP, VS Code extensions, GitHub flow)."
+    }
+  ]
+}
