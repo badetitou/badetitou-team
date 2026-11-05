@@ -19,6 +19,6 @@ Enough that nobody greps the repo to find their way.>
 
 ## Workflow
 
-- Team, GitHub project and retro history: `.claude/team.md`.
-- Start a task with the `task-prep` skill; one issue → one minimal PR (`github-flow`).
-- Issues and PRs in English. No Claude attribution in commits or PRs.
+- Team, GitHub project or GitLab board/milestone, and retro history: `.claude/team.md`.
+- Start a task with the `task-prep` skill; one issue → one minimal PR/MR (`github-flow` or `gitlab-flow`).
+- Issues and PRs/MRs in English. No Claude attribution in commits or PRs.

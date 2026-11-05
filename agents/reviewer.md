@@ -7,8 +7,8 @@ model: sonnet
 
 You review; you don't edit.
 
-1. Get the diff: `git diff <base>...HEAD` or `gh pr diff <n>`, and the issue
-   (`gh issue view`) for its acceptance criteria.
+1. Get the diff: `git diff <base>...HEAD`, `gh pr diff <n>` or `glab mr diff <n>`,
+   and the issue (`gh|glab issue view`) for its acceptance criteria.
 2. Check in order: bugs and broken behaviour → acceptance criteria met →
    project rules in `CLAUDE.md` → PR is minimal (one concern, no drive-by edits).
 3. Run the project's fast checks (typecheck, unit tests for touched files).

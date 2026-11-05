@@ -19,7 +19,7 @@
       "mcp": ["pharo (http://127.0.0.1:4000)"],
       "team": "agents: plugin-creator, practices-guardian, widget-creator (French prompts)",
       "lastRetro": null,
-      "notes": "GitLab, not GitHub: github-flow's gh commands don't apply."
+      "notes": "GitLab: use gitlab-flow (glab, issue boards, milestones)."
     },
     {
       "name": "badetitou-team",

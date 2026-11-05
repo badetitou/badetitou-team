@@ -12,7 +12,7 @@ Last retro: <YYYY-MM-DD or "none">
 
 ## Skills
 
-- badetitou-team: `task-prep`, `github-flow`, `team-retro`, <stack skills>
+- badetitou-team: `task-prep`, `github-flow` or `gitlab-flow`, `team-retro`, <stack skills>
 - other: <plugins / upstream skills in use>
 
 ## MCP servers
@@ -20,11 +20,18 @@ Last retro: <YYYY-MM-DD or "none">
 | Server | Where | Used for |
 | --- | --- | --- |
 
-## GitHub
+## GitHub (keep one of the two sections)
 
 - Repo: <owner/repo>
 - Project: <owner> #<number> — project id `<PVT_…>`, Status field `<PVTSSF_…>`
   - Todo `<id>` · In Progress `<id>` · In Review `<id>` · Done `<id>`
+
+## GitLab
+
+- Repo: <host>/<group/project>
+- Board: <name> (id `<id>`) — status by labels: In Progress `workflow::in progress` · In Review `workflow::in review` (or: native Status field)
+- Task work item type id: `gid://gitlab/WorkItems::Type/<n>`
+- Current milestone: <title> (due <date>)
 
 ## Notes from retros
 

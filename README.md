@@ -7,8 +7,8 @@ project at a time.
   `.claude` config, memories and past sessions.
 - **Sets up** a lean team: `CLAUDE.md`, a few narrow agents on the cheapest
   model that does the job, `.mcp.json`, and a team manifest (`.claude/team.md`).
-- **Prepares tasks**: GitHub issue → project board → minimal PRs → a brief for
-  the agent that does the work.
+- **Prepares tasks**: GitHub issue → project board, or GitLab work item →
+  issue board + milestone → minimal PRs/MRs → a brief for the agent that does the work.
 - **Improves itself**: retros read session stats (tokens, heavy tools, user
   corrections) and feed changes back into the project and into this repo.
 
@@ -30,6 +30,7 @@ While developing this repo, use the local checkout instead:
 | `skills/task-prep` | Turn a request into an issue, minimal PR slices and a brief |
 | `skills/team-retro` | Session stats → diagnosis → changes → `docs/retro-log.md` |
 | `skills/github-flow` | Minimal PRs, English issues, GitHub Projects status, no attribution |
+| `skills/gitlab-flow` | Same rules on GitLab: work items (issues + child tasks), issue boards, milestones, MRs |
 | `skills/pharo-mcp` | Live Pharo images via [Evref-BL/MCP](https://github.com/Evref-BL/MCP) |
 | `skills/vscode-extension` | TypeScript/React VS Code extensions |
 | `agents/` | `scout` (haiku), `implementer`, `reviewer`, `pharo-dev` — usable as-is, and templates for project agents |

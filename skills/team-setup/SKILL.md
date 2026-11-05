@@ -34,8 +34,10 @@ codebase you need summarised.
 5. **Past sessions**: run the retro script (see the `team-retro` skill) for a
    one-page summary — heavy tools, subagents used, corrections. Don't read raw
    transcripts.
-6. **GitHub**: `gh issue list --limit 20`, `gh project list --owner <owner>`,
-   labels. The team plugs into the issue/project flow (`github-flow` skill).
+6. **Forge**: GitHub → `gh issue list --limit 20`, `gh project list --owner <owner>`,
+   labels (`github-flow`). GitLab → `glab issue list -P 20`, `glab label list`,
+   `glab api projects/:id/boards`, `glab milestone list --state active`
+   (`gitlab-flow`). The team plugs into that issue/board flow.
 7. **Reusable pieces**: `catalog/references.json` in badetitou-team lists external
    skills, plugins and MCP servers worth reusing before writing new ones.
 
@@ -67,7 +69,7 @@ In the target project:
   when the work needs the strongest model).
 - `.mcp.json` for project-local servers.
 - `.claude/team.md` from `templates/project/team.md`: the team manifest — who
-  does what, which skills, the GitHub project, and the date of the last retro.
+  does what, which skills, the GitHub project or GitLab board/milestones, and the date of the last retro.
 - `.claude/settings.json`: allow the project's read-only and test commands to
   cut permission prompts.
 
@@ -79,7 +81,7 @@ fluid, English elsewhere unless told otherwise).
 - Add or update the project in badetitou-team `projects.json` (path, repo, stack,
   team, MCP servers, last retro).
 - Tell the user what was written, and suggest the first `task-prep` run.
-- Don't commit in the target project unless asked; if asked, follow `github-flow`.
+- Don't commit in the target project unless asked; if asked, follow `github-flow` or `gitlab-flow`.
 
 ## Refresh mode
 
