@@ -47,5 +47,6 @@ ones they accept:
 
 - Update `Last retro:` in the project's `.claude/team.md` and in
   `~/.claude/badetitou-team/projects.json`.
-- Add an entry at the top of badetitou-team `docs/retro-log.md`: date, project,
+- Add an entry at the top of `~/.claude/badetitou-team/retro-log.md`
+  (create it if missing): date, project,
   the numbers, what changed. Next retro compares against it.

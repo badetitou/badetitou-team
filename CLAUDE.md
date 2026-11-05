@@ -26,5 +26,5 @@ improves agent teams for the user's other projects. See `README.md` for the map.
 - Repo files in English; talk to the user in their language (often French).
 - One issue → one minimal PR (`skills/github-flow`). No Claude attribution in
   commits or PRs.
-- After a retro on any project, log it in `docs/retro-log.md` and update
+- After a retro on any project, log it in `~/.claude/badetitou-team/retro-log.md` and update
   `~/.claude/badetitou-team/projects.json` (never commit it here).

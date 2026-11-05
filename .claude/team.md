@@ -1,6 +1,6 @@
 # Team — badetitou-team
 
-Last retro: 2026-11-04 (baseline, see docs/retro-log.md)
+Last retro: 2026-11-04 (baseline, see ~/.claude/badetitou-team/retro-log.md)
 
 ## Agents
 
