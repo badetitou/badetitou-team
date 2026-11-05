@@ -11,8 +11,8 @@ models for exploration, project rules written once in CLAUDE.md instead of
 rediscovered each session, and agents with narrow tool lists.
 
 Work in the target project's directory. If the user names a project by name,
-look it up in `projects.json` at the root of the badetitou-team repo
-(`~/Documents/Perso/badetitou-team`).
+look it up in `~/.claude/badetitou-team/projects.json` (per-user, outside any
+repo — never write project paths or names into the public plugin repo).
 
 ## 1. Investigate (cheap first)
 
@@ -78,8 +78,9 @@ fluid, English elsewhere unless told otherwise).
 
 ## 4. Register and hand over
 
-- Add or update the project in badetitou-team `projects.json` (path, repo, stack,
-  team, MCP servers, last retro).
+- Add or update the project in `~/.claude/badetitou-team/projects.json`
+  (create it if missing: `{"projects": []}`) — path, repo, stack, team, MCP
+  servers, last retro.
 - Tell the user what was written, and suggest the first `task-prep` run.
 - Don't commit in the target project unless asked; if asked, follow `github-flow` or `gitlab-flow`.
 

@@ -37,8 +37,10 @@ While developing this repo, use the local checkout instead:
 | `hooks/` | Session-start nudge: no team yet, or retro overdue (one line, only when relevant) |
 | `templates/project/` | `CLAUDE.md` and `team.md` for a new project |
 | `catalog/references.json` | External skills, plugins and MCP servers to reuse; `scripts/sync-refs.sh` clones them into `vendor/` |
-| `projects.json` | Projects that have a team, and their last retro |
 | `docs/retro-log.md` | History of retros and what changed |
+
+Per-user state (projects that have a team, their paths and last retro) lives in
+`~/.claude/badetitou-team/projects.json`, outside this repo.
 
 ## Typical use
 

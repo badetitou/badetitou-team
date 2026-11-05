@@ -2,3 +2,6 @@
 vendor/
 .DS_Store
 __pycache__/
+
+# Per-user state lives in ~/.claude/badetitou-team/, never in this public repo
+projects.json

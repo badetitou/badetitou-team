@@ -27,4 +27,4 @@ improves agent teams for the user's other projects. See `README.md` for the map.
 - One issue → one minimal PR (`skills/github-flow`). No Claude attribution in
   commits or PRs.
 - After a retro on any project, log it in `docs/retro-log.md` and update
-  `projects.json`.
+  `~/.claude/badetitou-team/projects.json` (never commit it here).

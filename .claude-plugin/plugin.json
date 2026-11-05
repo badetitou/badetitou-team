@@ -1,6 +1,6 @@
 {
   "name": "badetitou-team",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Set up and improve teams of Claude agents for each project: investigate the project, its MCP servers and past sessions, write a lean team, prepare tasks through GitHub issues and projects or GitLab work items, issue boards and milestones, and run retros that feed improvements back.",
   "author": { "name": "Benoit Verhaeghe", "url": "https://github.com/badetitou" },
   "homepage": "https://github.com/badetitou/badetitou-team",
