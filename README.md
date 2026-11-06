@@ -31,6 +31,7 @@ While developing this repo, use the local checkout instead:
 | `skills/team-retro` | Session stats → diagnosis → changes → retro log |
 | `skills/github-flow` | Minimal PRs, English issues, GitHub Projects status, no attribution |
 | `skills/gitlab-flow` | Same rules on GitLab: work items (issues + child tasks), issue boards, milestones, MRs |
+| `skills/local-flow` | No remote yet: Markdown issues in `.claude/issues/`, a board script, export to `gh`/`glab` later |
 | `skills/pharo-mcp` | Live Pharo images via [Evref-BL/MCP](https://github.com/Evref-BL/MCP) |
 | `skills/vscode-extension` | TypeScript/React VS Code extensions |
 | `agents/` | `scout` (haiku), `implementer`, `reviewer`, `pharo-dev` — usable as-is, and templates for project agents |

@@ -1,6 +1,6 @@
 ---
 name: task-prep
-description: Prepare a new task before coding — find or create the GitHub or GitLab issue, put it on the project or issue board (and milestone on GitLab), split it into minimal PRs, pick the agent and worktree, and load only the context it needs. Use when the user asks for a new feature, fix or task ("I want…", "j'aimerais…", "work on #12", "nouvelle tâche"), before writing code.
+description: Prepare a new task before coding — find or create the GitHub, GitLab or local issue, put it on the project or issue board (and milestone on GitLab), split it into minimal PRs, pick the agent and worktree, and load only the context it needs. Use when the user asks for a new feature, fix or task ("I want…", "j'aimerais…", "work on #12", "nouvelle tâche"), before writing code.
 ---
 
 # Task preparation
@@ -14,7 +14,8 @@ not the whole conversation.
 1. **Read the team**: `.claude/team.md` and `CLAUDE.md` of the project. No team
    file → suggest `team-setup` and continue with defaults. Forge = the team
    file's, else `git remote get-url origin`: GitHub → `github-flow` (`gh`),
-   GitLab → `gitlab-flow` (`glab`). Below, "PR" means MR on GitLab.
+   GitLab → `gitlab-flow` (`glab`), no remote → `local-flow` (`board.py`, steps 2–7
+   with local ids; no board card beyond the file's status). Below, "PR" means MR on GitLab.
 2. **Find the issue**: `gh issue list --search "<keywords>" --state all` /
    `glab issue list --search "<keywords>" --all`. If the user gave a number,
    `gh|glab issue view <n> --comments`.

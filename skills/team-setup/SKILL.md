@@ -37,7 +37,8 @@ codebase you need summarised.
 6. **Forge**: GitHub → `gh issue list --limit 20`, `gh project list --owner <owner>`,
    labels (`github-flow`). GitLab → `glab issue list -P 20`, `glab label list`,
    `glab api projects/:id/boards`, `glab milestone list --state active`
-   (`gitlab-flow`). The team plugs into that issue/board flow.
+   (`gitlab-flow`). No remote → `local-flow` (`.claude/issues/`).
+   The team plugs into that issue/board flow.
 7. **Reusable pieces**: `catalog/references.json` in badetitou-team lists external
    skills, plugins and MCP servers worth reusing before writing new ones.
 
@@ -82,7 +83,7 @@ fluid, English elsewhere unless told otherwise).
   (create it if missing: `{"projects": []}`) — path, repo, stack, team, MCP
   servers, last retro.
 - Tell the user what was written, and suggest the first `task-prep` run.
-- Don't commit in the target project unless asked; if asked, follow `github-flow` or `gitlab-flow`.
+- Don't commit in the target project unless asked; if asked, follow `github-flow`, `gitlab-flow` or `local-flow`.
 
 ## Refresh mode
 
