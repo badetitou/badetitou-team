@@ -8,7 +8,11 @@ Last retro: <YYYY-MM-DD or "none">
 | --- | --- | --- | --- |
 | scout | haiku | read-only exploration, answers with references | edit |
 | implementer | sonnet | one brief → one minimal branch | widen scope |
-| reviewer | sonnet | diff vs rules and acceptance criteria | edit |
+| reviewer | sonnet | quick single-pass review of a small diff | edit |
+
+Review team (`review-team` skill): `review-correctness`, `review-stability`,
+`review-style` (haiku), `review-tests`, `review-contract`, `review-verifier` —
+plugin agents / project copies / not used.
 
 ## Skills
 

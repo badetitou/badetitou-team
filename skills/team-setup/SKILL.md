@@ -46,11 +46,16 @@ codebase you need summarised.
 
 Show the user a short plan (in their language) before writing:
 
-- the team: 2–4 agents max to start. Typical roles, from `agents/` in badetitou-team:
-  - `scout` (haiku) — read-only exploration, returns conclusions not dumps
-  - `implementer` (sonnet) — one issue → one minimal branch/PR
-  - `reviewer` (sonnet) — reviews a diff against the project rules
-  - a stack specialist only when the stack needs one (e.g. `pharo-dev`)
+- the team, in three groups (see `docs/teams.md` in badetitou-team):
+  - **core**, 2–4 agents: `scout` (haiku, read-only exploration),
+    `implementer` (sonnet, one brief → one branch), `reviewer` (sonnet, quick
+    single-pass review of a small diff)
+  - **specialists**, only when the stack needs one (e.g. `pharo-dev`)
+  - **review team**, when the project runs parallel task branches or diffs
+    beyond a one-file fix: the five `review-*` lenses + `review-verifier`,
+    driven by the `review-team` skill. Use the plugin's agents as-is; copy
+    them into the project only to add its contracts and conventions (then
+    `agentPrefix: ""`).
 - which stack skills apply (`pharo-mcp`, `vscode-extension`, …)
 - MCP servers to wire, and any to drop
 - CLAUDE.md rules lifted from memories

@@ -28,8 +28,8 @@ their own for a new backlog).
 ## Branches and "PRs"
 
 - Branch `<id>-<slug>`; commit messages end with `Refs #<id>` (local id).
-- There is no PR: *in-review* = branch ready, run the `reviewer` agent on
-  `git diff main...<branch>`, then the user merges. Move to *done* in the
+- There is no PR: *in-review* = branch ready, run `review-team` on the
+  branch (`reviewer` alone for a one-file fix), then the user merges. Move to *done* in the
   merge commit or right after.
 
 ## Going public

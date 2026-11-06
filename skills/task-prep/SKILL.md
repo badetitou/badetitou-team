@@ -33,7 +33,10 @@ not the whole conversation.
    `<issue-number>-<slug>`). For Pharo image work, there is no worktree: name the
    image and MCP server to use instead.
 7. **Move the card** to *In Progress* (GitLab: `workflow::in progress` label) and start, or hand the brief to the
-   `implementer` agent when the work can run in the background.
+   `implementer` agent when the work can run in the background. Independent
+   slices can each get an implementer in its own worktree, in parallel.
+8. **Review before merge**: `review-team` for task branches (one or many),
+   `reviewer` alone for a one-file fix.
 
 Ask the user only when the scope is ambiguous enough that two readings would
 lead to different PRs.
