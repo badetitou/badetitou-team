@@ -19,6 +19,7 @@ flowchart LR
   main[Main session] --> core
   main --> spec
   main --> review
+  main -.-> research
   subgraph core[Core]
     scout[scout · haiku] ~~~ impl[implementer · sonnet] ~~~ rev[reviewer · sonnet]
   end
@@ -27,6 +28,9 @@ flowchart LR
   end
   subgraph review[Review team]
     lenses[correctness · stability · style · tests · contract] --> v[verifier]
+  end
+  subgraph research[Research team · opt-in]
+    abs[abstract · haiku] --> intro[intro/conclusion · sonnet] --> conf[confirm · opus]
   end
 ```
 
@@ -53,9 +57,10 @@ While developing this repo, use the local checkout instead:
 | `skills/gitlab-flow` | Same rules on GitLab: work items (issues + child tasks), issue boards, milestones, MRs |
 | `skills/local-flow` | No remote yet: Markdown issues in `.claude/issues/`, a board script, export to `gh`/`glab` later |
 | `skills/review-team` | Checks once, five lens reviewers per branch, one verifier that merges and refutes — before merging |
+| `skills/research-team` | Opt-in literature search: OpenAlex → abstract screen (haiku) → intro/conclusion (sonnet) → full text (opus) → report |
 | `skills/pharo-mcp` | Live Pharo images via [Evref-BL/MCP](https://github.com/Evref-BL/MCP) |
 | `skills/vscode-extension` | TypeScript/React VS Code extensions |
-| `agents/` | Core: `scout` (haiku), `implementer`, `reviewer`; specialist: `pharo-dev`; review team: `review-*` lenses + `review-verifier`. Usable as-is, and templates for project agents |
+| `agents/` | Core: `scout` (haiku), `implementer`, `reviewer`; specialist: `pharo-dev`; review team: `review-*` lenses + `review-verifier`; research team (opt-in): `research-abstract`, `research-intro`, `research-confirm`. Usable as-is, and templates for project agents |
 | `docs/teams.md` | Diagrams of the teams and of a task's lifecycle |
 | `hooks/` | Session-start nudge: no team yet, or retro overdue (one line, only when relevant) |
 | `templates/project/` | `CLAUDE.md` and `team.md` for a new project |
@@ -69,4 +74,5 @@ Per-user state lives in `~/.claude/badetitou-team/`, outside this repo:
 - In a new project: *"set up a team for this project"* → `team-setup`.
 - New work: *"I want …"* / *"work on #12"* → `task-prep`, then implement.
 - Before merging: *"review the branches"* → `review-team`.
+- Literature work, in a project with a research team: *"find papers on …"* → `research-team`.
 - Every couple of weeks (the hook reminds you): *"retro"* → `team-retro`.

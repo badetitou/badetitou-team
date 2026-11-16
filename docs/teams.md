@@ -1,8 +1,9 @@
 # Teams
 
-A project's team has three groups. The **core** is always there; a
+A project's team has up to four groups. The **core** is always there; a
 **specialist** joins only when the stack needs one; the **review team** is
-called before merging task branches. Skills orchestrate them; agents do the work.
+called before merging task branches; the **research team** exists only in
+projects that do literature work (paper, thesis, state of the art). Skills orchestrate them; agents do the work.
 
 ## Who is in the team
 
@@ -16,6 +17,7 @@ flowchart LR
     prep[task-prep]
     flow[github-flow / gitlab-flow / local-flow]
     rteam[review-team]
+    rsearch[research-team]
     retro[team-retro]
   end
   main --- skills
@@ -44,6 +46,17 @@ flowchart LR
     checks --> lenses --> v
   end
 
+  subgraph research[Research team · opt-in, literature projects only]
+    direction TB
+    oa[[papers.py search<br/>OpenAlex]]
+    ra[research-abstract<br/>haiku · batches of 20, lenient]
+    fe[[papers.py fetch<br/>PDF → intro + conclusion]]
+    ri[research-intro<br/>sonnet · per paper]
+    rc[research-confirm<br/>opus · full text]
+    oa --> ra --> fe --> ri --> rc
+  end
+
+  rsearch --> oa
   prep --> scout
   prep --> impl
   prep --> pharo
@@ -79,5 +92,9 @@ flowchart TD
   verifier per finding cost twice the review itself.
 - **Checks once**: fmt, lint and tests run by script before the reviewers,
   who read the output instead of rebuilding the branch.
+- **Research funnel**: each stage reads more of the paper with a stronger
+  model, so the expensive model only reads what two cheaper screens kept.
+  Early stages lean towards keeping (a wrong exclusion is lost for good).
+  Search and PDF extraction are scripts, not agent reading.
 - **Unverified ≠ rejected**: missing-test and low-severity findings are
   judgment calls; they go to the user instead of a verifier.

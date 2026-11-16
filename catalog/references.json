@@ -38,7 +38,7 @@
       "repo": "https://github.com/Imbad0202/academic-research-skills",
       "ref": "main",
       "kind": "plugin",
-      "use": "Research, paper writing and review pipeline (installed user-wide).",
+      "use": "Research, paper writing and review pipeline (installed user-wide). sr-screener for formal systematic reviews (dual blinded screening, PRISMA); research-team is the cheaper everyday funnel and hands over to deep-research / academic-paper for write-up.",
       "projects": ["research"]
     }
   ]
