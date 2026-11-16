@@ -20,7 +20,7 @@ Run these yourself; they're quick. Delegate to the `scout` agent only for a larg
 codebase you need summarised.
 
 1. **Stack**: `git remote -v`, manifest files (`package.json`, `BaselineOf*`,
-   `.project`, `.smalltalk.ston`, `pyproject.toml`…), `README.md`, CI workflows.
+   `.project`, `.smalltalk.ston`, `pyproject.toml`, `*.tex`, `*.bib`…), `README.md`, CI workflows.
 2. **Existing Claude config**: `CLAUDE.md`, `AGENTS.md`, `.claude/agents/`,
    `.claude/settings*.json`, `.mcp.json`, `.claude/team.md`. Keep what works;
    never overwrite without showing the diff.
@@ -56,6 +56,11 @@ Show the user a short plan (in their language) before writing:
     driven by the `review-team` skill. Use the plugin's agents as-is; copy
     them into the project only to add its contracts and conventions (then
     `agentPrefix: ""`).
+  - **research team**, only when the project does literature work (a paper,
+    a thesis, a state of the art: `.tex`/`.bib` files, a `research/` folder,
+    or the user asks) — never for a plain code project: `research-abstract`
+    (haiku), `research-intro` (sonnet), `research-confirm` (opus), driven by
+    the `research-team` skill. Ask the user before adding it.
 - which stack skills apply (`pharo-mcp`, `vscode-extension`, …)
 - MCP servers to wire, and any to drop
 - CLAUDE.md rules lifted from memories

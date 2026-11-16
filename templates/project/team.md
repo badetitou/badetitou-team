@@ -14,6 +14,10 @@ Review team (`review-team` skill): `review-correctness`, `review-stability`,
 `review-style` (haiku), `review-tests`, `review-contract`, `review-verifier` —
 plugin agents / project copies / not used.
 
+Research team (`research-team` skill, only if the project does literature
+work — delete otherwise): `research-abstract` (haiku), `research-intro`
+(sonnet), `research-confirm` (opus). Topics in `research/<topic>/`.
+
 ## Skills
 
 - badetitou-team: `task-prep`, `github-flow`, `gitlab-flow` or `local-flow`, `team-retro`, <stack skills>
