@@ -14,7 +14,8 @@ python3 <this skill's dir>/scripts/session_stats.py <project-path> --since <last
 ```
 
 It covers the project and its `.claude/worktrees/*` sessions and prints:
-token totals, heaviest sessions, tool and subagent counts, and user messages
+token totals for the main loop and for subagents apart (with subagent tokens
+per model), heaviest sessions, tool and subagent counts, and user messages
 that look like corrections. Read raw `.jsonl` only to check one specific
 finding, with `grep`, never whole.
 
@@ -30,6 +31,8 @@ Look for these patterns, in this order:
 | Cache write ≫ output | context rebuilt often (forks, long CLAUDE.md, big tool results) | trim CLAUDE.md, fewer forks, narrower results |
 | Agents defined but never used | wrong description / not needed | rewrite description or delete the agent |
 | `general-purpose` subagents for one recurring job | missing specialist | create one narrow agent |
+| Main-loop cache read ≫ its output, in long multi-PR runs | one session re-invoked by every notification | one session per batch of issues (`task-prep`) |
+| Opus subagent tokens on push/PR/merge | mechanical step on the session model | haiku or workflow code; allowlist the merge (`team-setup`) |
 
 ## 3. Change
 

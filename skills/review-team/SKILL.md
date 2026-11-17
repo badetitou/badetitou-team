@@ -27,8 +27,10 @@ workflow `<this skill's dir>/review-branches.js`.
    (missing tests, low severity) → show the user, fix only what they pick;
    `rejected` is a count, nothing to do.
 5. **Merge** when fixed and green (local: `git merge`; forge: PR/MR per
-   `github-flow` / `gitlab-flow`). Then remove the branch's worktree and branch,
-   and any temporary worktree `branch_checks.py` printed.
+   `github-flow` / `gitlab-flow`). Push/PR/CI/merge runs on haiku or in
+   workflow code, never on the session model (`task-prep` step 9). Then remove
+   the branch's worktree and branch, and any temporary worktree
+   `branch_checks.py` printed.
 
 ## Sizing
 
