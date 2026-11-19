@@ -19,7 +19,11 @@ workflow `<this skill's dir>/review-branches.js`.
 3. **Run the workflow** (this skill counts as the user's opt-in):
    `Workflow({scriptPath: "<this skill's dir>/review-branches.js", args: {repo, base, branches: [{branch, worktree, brief, checks}]}})`.
    Options: `lenses` (subset, e.g. drop `style` for a pure test change),
-   `agentPrefix: ""` when the project has its own `review-*` copies.
+   `agentPrefix: ""` when the project has its own `review-*` copies, `models`
+   (per lens or `verifier`). The script pins each lens's model (sonnet, haiku for
+   style): workflow agents otherwise inherit the session model, frontmatter or not.
+   If `scriptPath` is refused (the skill dir is not readable from the session),
+   `Read` the script once and retry, or pass it inline as `script`.
    No Workflow tool → spawn the five `review-*` agents per branch in parallel
    with the Agent tool, then one `review-verifier` with all their findings.
 4. **Act on the result**, per branch: `confirmed` → send to the branch's

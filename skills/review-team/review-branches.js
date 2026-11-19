@@ -11,10 +11,14 @@ export const meta = {
 //   branches: [{ branch, worktree, brief, checks }],  // checks = branch_checks.py output
 //   lenses: ['correctness', ...],                  // optional, default all five
 //   agentPrefix: 'badetitou-team:',                // '' when the project has its own copies
+//   models: { style: 'haiku', ... },               // optional, overrides MODELS per lens or 'verifier'
 // }
 const LENSES = args.lenses || ['correctness', 'stability', 'style', 'tests', 'contract']
 const PREFIX = args.agentPrefix ?? 'badetitou-team:'
 const BASE = args.base || 'main'
+// Workflow agents run on the session model whatever their agent frontmatter says, so each lens is
+// pinned here (a review on Opus cost ~5 M tokens in one retro).
+const MODELS = { correctness: 'sonnet', stability: 'sonnet', style: 'haiku', tests: 'sonnet', contract: 'sonnet', verifier: 'sonnet', ...(args.models || {}) }
 // Judgment calls (missing tests) and low-severity findings are reported unverified.
 const VERIFY = f => f.severity !== 'low' && f.lens !== 'tests'
 
@@ -49,7 +53,7 @@ const results = await pipeline(
   args.branches,
   // Review: all lenses of one branch in parallel; the barrier is per branch only.
   b => parallel(LENSES.map(lens => () =>
-    agent(context(b), { label: `${b.branch}:${lens}`, phase: 'Review', schema: FINDINGS, agentType: `${PREFIX}review-${lens}` })
+    agent(context(b), { label: `${b.branch}:${lens}`, phase: 'Review', schema: FINDINGS, agentType: `${PREFIX}review-${lens}`, model: MODELS[lens] })
       .then(r => r && { lens, checks: r.checks, findings: r.findings.map(f => ({ ...f, lens })) })))
     .then(rs => rs.filter(Boolean)),
   // Verify: one verifier per branch, all verifiable findings at once (dedup + refute).
@@ -60,7 +64,7 @@ const results = await pipeline(
     let confirmed = [], rejected = []
     if (toVerify.length) {
       const list = toVerify.map((f, i) => `${i}. [${f.severity}/${f.lens}] ${f.location}: ${f.problem} (fix: ${f.fix})`).join('\n')
-      const v = await agent(`${context(b)}\n\nFindings:\n${list}`, { label: `verify:${b.branch}`, phase: 'Verify', schema: VERDICTS, agentType: `${PREFIX}review-verifier` })
+      const v = await agent(`${context(b)}\n\nFindings:\n${list}`, { label: `verify:${b.branch}`, phase: 'Verify', schema: VERDICTS, agentType: `${PREFIX}review-verifier`, model: MODELS.verifier })
       const byIndex = new Map((v?.verdicts || []).map(x => [x.index, x]))
       toVerify.forEach((f, i) => {
         const x = byIndex.get(i)
