@@ -32,7 +32,10 @@ Look for these patterns, in this order:
 | Agents defined but never used | wrong description / not needed | rewrite description or delete the agent |
 | `general-purpose` subagents for one recurring job | missing specialist | create one narrow agent |
 | Main-loop cache read ≫ its output, in long multi-PR runs | one session re-invoked by every notification | one session per batch of issues (`task-prep`) |
-| Opus subagent tokens on push/PR/merge | mechanical step on the session model | haiku or workflow code; allowlist the merge (`team-setup`) |
+| Opus subagent tokens on push/PR/merge | mechanical step on the session model | push/PR inline, CI wait and merge on haiku or workflow code; allowlist the merge (`team-setup`) |
+| Workflow subagents on the session model (`workflow-subagent` on Opus) | `agent()` ignores the agent frontmatter's model | pass `model` in every `agent()` call |
+| Implementer hand-back refused, "waiting on its own background work", claims not in the diff | report sent twice, leftover processes | implementer prompt: one final report from the diff, stop background work |
+| Parallel web-research agents return partial reports | search rate limit | at most 4 web researchers at once; batch the rest |
 
 ## 3. Change
 

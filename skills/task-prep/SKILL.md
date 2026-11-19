@@ -37,8 +37,10 @@ not the whole conversation.
    slices can each get an implementer in its own worktree, in parallel.
 8. **Review before merge**: `review-team` for task branches (one or many),
    `reviewer` alone for a one-file fix.
-9. **Ship** (push → PR → wait for CI → merge): a mechanical step — run it in
-   workflow code or an agent with `model: haiku`, never on the session model.
+9. **Ship** (push → PR → wait for CI → merge). Push and opening the draft PR are
+   two commands: run them inline with Bash (~1 k tokens); a subagent for them
+   costs ~60 k of context. Waiting for CI and merging is the mechanical loop:
+   workflow code or an agent with `model: haiku`, never the session model.
    A subagent can merge only if `Bash(gh pr merge:*)` / `Bash(glab mr merge:*)`
    is allowed in the project's `.claude/settings.json`; otherwise it stops at a
    green PR and the main session merges.
@@ -51,4 +53,7 @@ lead to different PRs.
 One session per batch of issues (`start_session`, or `hand_off_to_session`
 mid-task), each with its short brief — not one session driving everything:
 every workflow or agent notification makes the main loop re-read its whole,
-ever-growing context (one 26-PR run: 52 M cache read for ~17 k output).
+ever-growing context (one 26-PR run: 52 M cache read for ~17 k output; one
+7-PR run: 506 M cache read). The same holds when the user drives it ("next
+PR", "lance #N"): from the second PR in a session, offer to start the next issue
+in a fresh session with its brief (`start_session`) instead of continuing here.

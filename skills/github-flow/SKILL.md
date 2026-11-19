@@ -30,6 +30,11 @@ EOF
 Sub-issues for multi-PR work; link with "Part of #N" in the body (or the
 sub-issue API when the repo uses it).
 
+Stacked PRs (a child needs an unmerged parent): branch the child from the
+parent branch and open its PR against the parent branch. Once the parent is
+merged, merge `main` into the child, push, then retarget to `main` — GitHub
+marks the child "dirty" when the parent's commits arrived by two merges.
+
 ## Projects (status tracking)
 
 ```sh
