@@ -30,11 +30,14 @@ workflow `<this skill's dir>/review-branches.js`.
    implementer (`SendMessage`, it keeps its context) or fix; `unverified`
    (missing tests, low severity) → show the user, fix only what they pick;
    `rejected` is a count, nothing to do.
-5. **Merge** when fixed and green (local: `git merge`; forge: PR/MR per
-   `github-flow` / `gitlab-flow`). Push and PR inline; CI/merge on haiku or in
-   workflow code, never on the session model (`task-prep` step 9). Then remove
-   the branch's worktree and branch, and any temporary worktree
-   `branch_checks.py` printed.
+5. **Merge** when fixed and green. The orchestrator (main session) does it,
+   inline, once the verifier is clean and CI is green (forge: `gh pr merge <n>
+   --squash` / `glab mr merge <n> --squash --remove-source-branch`; local:
+   `git merge`). Allowed only when `.claude/team.md` says `Merge: orchestrator`;
+   otherwise stop and tell the user the PR is ready. Push and PR inline; CI
+   waits on haiku or in workflow code, never on the session model
+   (`task-prep` step 9). Then remove the branch's worktree and branch, and any
+   temporary worktree `branch_checks.py` printed.
 
 ## Sizing
 

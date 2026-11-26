@@ -57,3 +57,7 @@ The `project` scope is needed: `gh auth refresh -s project` if a call is denied.
 - Branch: `<issue>-<slug>`.
 - Body: what changed and why in 2–5 lines, how it was verified, `Closes #N`.
 - Draft PR while CI runs; mark ready once green.
+- Merge: squash, by the orchestrator once the review is clean and checks are
+  green, when the project's `.claude/team.md` says `Merge: orchestrator`
+  (`gh pr merge <n> --squash --delete-branch`). Never `--admin`, never past a
+  required check, never auto-merge unless the user asks.

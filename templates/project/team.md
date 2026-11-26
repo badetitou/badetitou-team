@@ -1,6 +1,7 @@
 # Team — <project>
 
 Last retro: <YYYY-MM-DD or "none">
+Merge: <orchestrator | manual> (orchestrator = the main session merges a clean, green PR; manual = the user merges)
 
 ## Agents
 

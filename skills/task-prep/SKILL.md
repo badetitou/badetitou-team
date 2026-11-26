@@ -39,11 +39,17 @@ not the whole conversation.
    `reviewer` alone for a one-file fix.
 9. **Ship** (push → PR → wait for CI → merge). Push and opening the draft PR are
    two commands: run them inline with Bash (~1 k tokens); a subagent for them
-   costs ~60 k of context. Waiting for CI and merging is the mechanical loop:
-   workflow code or an agent with `model: haiku`, never the session model.
-   A subagent can merge only if `Bash(gh pr merge:*)` / `Bash(glab mr merge:*)`
-   is allowed in the project's `.claude/settings.json`; otherwise it stops at a
-   green PR and the main session merges.
+   costs ~60 k of context. Waiting for CI is the mechanical loop: workflow code
+   or an agent with `model: haiku`, never the session model.
+   **Merge is the orchestrator's last step** (the main session, inline):
+   when the review is clean and CI is green, run `gh pr merge <n> --squash`
+   (GitLab: `glab mr merge <n> --squash --remove-source-branch`) — only if
+   `.claude/team.md` says `Merge: orchestrator` (the user's standing
+   authorization for that project). Never merge a red or unreviewed PR, and
+   never merge with `--admin` or by bypassing required checks. Then remove the
+   worktree and branch (`review-team` step 5). Subagents never merge; if the
+   project allows it, the allowlist entry below lets them, but the orchestrator
+   is the default.
 
 Ask the user only when the scope is ambiguous enough that two readings would
 lead to different PRs.
