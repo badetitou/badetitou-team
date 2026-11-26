@@ -57,3 +57,13 @@ ever-growing context (one 26-PR run: 52 M cache read for ~17 k output; one
 7-PR run: 506 M cache read). The same holds when the user drives it ("next
 PR", "lance #N"): from the second PR in a session, offer to start the next issue
 in a fresh session with its brief (`start_session`) instead of continuing here.
+
+## Keep the main session cheap
+
+- **Pass `model` on every `Agent` and `agent()` call.** A subagent without it
+  runs on the session model (Opus); the agent's frontmatter is ignored by workflows.
+  Code: sonnet. Read-only or mechanical: haiku. Opus only for a one-off final review.
+- **UI work goes to `designer`**, then `adversarial-reviewer` on its branch. Browser
+  checks and screenshots stay out of the main session.
+- **After a hand-off, answer in one line and wait for the report.** No design or
+  diff discussion in the main session while an agent runs; questions go in the brief.

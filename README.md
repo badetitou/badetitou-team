@@ -60,7 +60,7 @@ While developing this repo, use the local checkout instead:
 | `skills/research-team` | Opt-in literature search: OpenAlex → abstract screen (haiku) → intro/conclusion (sonnet) → full text (opus) → report |
 | `skills/pharo-mcp` | Live Pharo images via [Evref-BL/MCP](https://github.com/Evref-BL/MCP) |
 | `skills/vscode-extension` | TypeScript/React VS Code extensions |
-| `agents/` | Core: `scout` (haiku), `implementer`, `reviewer`; specialist: `pharo-dev`; review team: `review-*` lenses + `review-verifier`; research team (opt-in): `research-abstract`, `research-intro`, `research-confirm`. Usable as-is, and templates for project agents |
+| `agents/` | Core: `scout` (haiku), `implementer`, `reviewer`; specialists: `pharo-dev`, `designer` (UI, sonnet), `adversarial-reviewer` (tries to break UI changes, sonnet); review team: `review-*` lenses + `review-verifier`; research team (opt-in): `research-abstract`, `research-intro`, `research-confirm`. Usable as-is, and templates for project agents |
 | `docs/teams.md` | Diagrams of the teams and of a task's lifecycle |
 | `hooks/` | Session-start nudge: no team yet, or retro overdue (one line, only when relevant) |
 | `templates/project/` | `CLAUDE.md` and `team.md` for a new project |
