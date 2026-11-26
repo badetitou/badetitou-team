@@ -82,9 +82,12 @@ In the target project:
 - `.claude/team.md` from `templates/project/team.md`: the team manifest — who
   does what, which skills, the GitHub project or GitLab board/milestones, and the date of the last retro.
 - `.claude/settings.json`: allow the project's read-only and test commands to
-  cut permission prompts. If the user wants subagents to merge on their own,
-  propose allowing `Bash(gh pr merge:*)` (GitLab: `Bash(glab mr merge:*)`) —
-  without it auto mode denies the merge to subagents.
+  cut permission prompts. Merging is the orchestrator's last step (`task-prep`
+  step 9). Ask once whether the orchestrator may merge green, reviewed PRs in
+  this project; if yes, write `Merge: orchestrator` in `.claude/team.md`, and
+  allow `Bash(gh pr merge:*)` (GitLab: `Bash(glab mr merge:*)`) so the main
+  session is not prompted for each merge. Without the allowlist, auto mode
+  prompts or denies the merge.
 
 Write agent prompts in the language of the project's existing agents (French in
 fluid, English elsewhere unless told otherwise).
